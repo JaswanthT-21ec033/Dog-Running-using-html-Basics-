@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walking Dog</title>
+    <style>
+        #dog {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100px;
+            transition: left 1s linear;
+        }
+    </style>
+</head>
+<body>
+    <img id="dog" src="dog.gif" alt="Walking Dog">
+    <script>
+        let dog = document.getElementById('dog');
+        let position = 0;
+        let screenWidth = window.innerWidth;
+
+        function walkDog() {
+            position += 10;
+            if (position > screenWidth) {
+                position = -dog.width;
+            }
+            dog.style.left = position + 'px';
+        }
+
+        setInterval(walkDog, 100);
+    </script>
+</body>
+</html>
